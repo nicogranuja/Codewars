@@ -1,24 +1,17 @@
 function domainName(url){
+	url = url.replace(/www.|https:\/\/|http:\/\//gi, "");
 	var arr = url.split("");
-	var newString="";
-	var found = false;
 	for(var i=0; i < arr.length; i++){
-
-		if(arr[i] =='/'){
-			url = url.substring(i+2);
-			found =true;
-			continue;
-
-		}
-		else if(arr[i]=='.' && found){
-			url.substring(0, i+2);
-			console.log(url);
+		if(arr[i] == '.'){			
+			url = url.substring(0, i);
 			return url;
 		}
-
-
-	}
-	// console.log(arr);	
+	}	
 }
 
-console.log(domainName("http://google.com"));
+console.log(domainName("https://www.codewars.com"));
+console.log(domainName("http://google.co.jp"));
+console.log(domainName("www.xakep.ru"));
+console.log(domainName("https://youtube.com"));
+console.log(domainName("https://www.cnet.com"));
+console.log(domainName("http://github.com/carbonfive/raygun") );
